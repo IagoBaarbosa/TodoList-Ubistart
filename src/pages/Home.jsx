@@ -10,27 +10,24 @@ export default function Home() {
   };
 
   const deleteTodo = (id) => {
-    var filtered = todos.filter((todo) => todo.id !== id);
+    let filtered = todos.filter((todo) => todo.id !== id);
     setTodos(filtered);
   };
 
   const editTodo = (id, editedText) => {
-    var todosArray = todos;
+    let todosArray = todos;
 
-    for (var i in todosArray) {
-      if (todosArray[i].id == id) {
+    for (let i in todosArray) {
+      if (todosArray[i].id === id) {
         todosArray[i].text = editedText;
       }
     }
 
-    // console.log(todosArray);
-    // todosArray.splice(todosArray.id, 1, { text: editedText, id: id });
-    // console.log(todosArray);
     setTodos(todosArray);
   };
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: "1em" }}>
+    <Container maxWidth="sm" style={{ marginTop: "1em" }}>
       <Form addTodo={addTodo} />
       <List sx={{ marginTop: "1em" }}>
         {todos.map((todo) => (
